@@ -15,7 +15,11 @@ jupyter:
 ```python
 !pip install -U pip uv
 !uv pip install -U matplotlib numpy ipympl
-!uv pip install -U "jax[tpu]" xprof optax flax torchvision torch --index-url https://download.pytorch.org/whl/cpu
+
+# NOTE: CHOOSE THE RIGHT BACKEND!
+# !uv pip install -U "jax[tpu]" xprof optax flax torchvision torch --index-url https://download.pytorch.org/whl/cpu
+# !uv pip install -U "jax[cuda13]" xprof optax flax torchvision torch --index-url https://download.pytorch.org/whl/cpu
+# !uv pip install -U "jax[cpu]" xprof optax flax torchvision torch --index-url https://download.pytorch.org/whl/cpu
 
 #%load_ext matplotlib
 #%matplotlib widget
