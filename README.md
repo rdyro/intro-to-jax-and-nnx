@@ -871,12 +871,9 @@ print(f"Train step is {len(train_step_compiled.as_text().split('\n'))} lines of 
 
 ```python
 from jax import numpy as jnp
-from jax.experimental.shard_map import shard_map
 
 
-@partial(shard_map, mesh=mesh, 
-    in_specs=(P('x', 'y'), P('y', None)),
-    out_specs=P('x', None))
+@partial(jax.shard_map, out_specs=P('x', None))
 def matmul_basic(a_block, b_block):
   # a_block: f32[2, 8]
   # b_block: f32[8, 4]
